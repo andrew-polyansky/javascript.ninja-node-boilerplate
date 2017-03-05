@@ -1,23 +1,24 @@
 {
-  "name": "jsninja-creation-demo",
+  "name": "websocket-challenge",
   "version": "1.0.0",
-  "description": "Demo project for stream",
+  "description": "sScket challenge",
   "main": "index.js",
-  "author": "Illya Klymov <illya@javascript.ninja>",
+  "author": "Andrew Polyansky <polyanski.andrew@gmail.com>",
   "license": "MIT",
   "scripts": {
     "start": "rimraf ./dist && babel -d ./dist ./src -s && node dist/main.js",
-    "dev": "node dev.js",
-    "lint:js": "eslint ./src",
+    "dev": "node ./dev.js",
+    "client": "node ./src/client.js",
+    "lint:js": "eslint ./src --fix",
     "lint-staged": "lint-staged"
   },
   "devDependencies": {
     "babel-register": "^6.23.0",
     "eslint": "^3.16.1",
     "eslint-config-airbnb-base": "^11.1.0",
-    "eslint-config-prettier": "^1.4.1",
     "eslint-plugin-import": "^2.2.0",
     "lint-staged": "^3.3.1",
+    "nodemon": "^1.11.0",
     "pre-commit": "^1.2.2"
   },
   "lint-staged": {
@@ -25,12 +26,12 @@
   },
   "eslintConfig": {
     "root": true,
-    "extends": [
-      "airbnb-base",
-      "prettier"
-    ],
+    "extends": "airbnb-base",
     "env": {
       "node": true
+    },
+    "rules": {
+      "no-use-before-define": 0
     }
   },
   "pre-commit": "lint-staged",
@@ -38,7 +39,8 @@
     "babel-cli": "^6.23.0",
     "babel-core": "^6.23.1",
     "babel-preset-env": "^1.1.11",
-    "rimraf": "^2.6.1"
+    "rimraf": "^2.6.1",
+    "uws": "^0.13.0"
   },
   "babel": {
     "presets": [
